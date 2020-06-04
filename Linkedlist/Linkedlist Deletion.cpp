@@ -26,7 +26,7 @@ Linkedlist* DeleteGivenNodeRecur(Linkedlist *head,int key)
 	{
 		return NULL;
 	}
-	if(temp->data==key)
+	if(temp!=NULL&&temp->data==key)
 	{
 		head=temp->next;
 		return head;
@@ -66,13 +66,14 @@ Linkedlist *Deletenodeatposition(Linkedlist *head,int pos)
 	Linkedlist *temp1=head;
 	Linkedlist *temp2=NULL;
 	
-	if(pos==0)
+	if(pos==1)
 	{
 		temp1=head->next;
 		return temp1;
 	}
-	for(int i=0;i<pos-1;i++)
+	for(int i=0;i<pos-2;i++)
 	{
+		
 		temp1=temp1->next;
 	}
 	temp2=temp1->next;
@@ -90,6 +91,21 @@ void Deletenodepointer(Linkedlist *nodeptr)
 	
 	
 }
+
+Linkedlist *Deletelinkedlist(Linkedlist *head)
+{
+Linkedlist *temp = head;  
+Linkedlist *next=NULL;  
+  
+while (temp != NULL)  
+{  
+    next = temp->next;  
+    free(temp);  
+    temp= next;  
+}  
+return head=NULL;
+	
+}
 void print(Linkedlist *head)
 {
 	Linkedlist *temp=head;
@@ -99,10 +115,7 @@ void print(Linkedlist *head)
 		cout<<temp->data<<" ";
 		temp=temp->next;
 		
-	}
-	
-	
-	
+	}	
 }
 
 int main()
@@ -133,9 +146,9 @@ print(head);*/
 
 //DELETE A NODE AT GIVEN POSITION
 
-/*Linkedlist* head=Deletenodeatposition(node1,0);
+Linkedlist* head=Deletenodeatposition(node1,3);
 print(head);
-*/
+
 
 //DELETE A NODE WHEN HEAD NODE IS NOT GIVEN.
 //ONLY POINTER TO THAT NODE IS GIVEN
@@ -143,4 +156,10 @@ print(head);
 /*Deletenodepointer(node4);
 print(node1);
 */
+
+//DELETE ENTIRE LINKEDLIST
+/*Linkedlist* head=Deletelinkedlist(node1);
+print(head);//output is NULL
+*/
+
 }

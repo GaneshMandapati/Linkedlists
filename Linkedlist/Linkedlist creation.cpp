@@ -108,10 +108,11 @@ int main()
 	node3->next=node4;
 	node4->next=node5;
 	
+	print(node1);
 	
 	//INSERT A NODE AT BEGINING
 /*	cout<<"Before inserting Linkedlist is\n";
-	print(node1);
+	
 	cout<<endl;
 	Linkedlist *head=insertfirst(node1,0);
 	cout<<" After inserting 0 at front the linked list is\n";
